@@ -12,7 +12,8 @@ class LeadQualification:
             config=self.agents_config["lead_qualification_agent"],
             llm=LLM(
                 model="groq/llama-3.3-70b-versatile",
-                drop_params=True
+                drop_params=True,
+                additional_drop_params=["cache_breakpoint"]
             ),
             verbose=True,
             cache=False
