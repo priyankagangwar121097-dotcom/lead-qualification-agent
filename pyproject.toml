@@ -6,7 +6,7 @@ authors = [{ name = "Priyanka Gangwar", email = "priyankagangwar121097@gmail.com
 requires-python = ">=3.12,<3.14"
 
 dependencies = [
-    "crewai[tools]==1.14.7",
+    "crewai[tools]==1.15.2",
     "litellm==1.74.15",
     "streamlit",
     "pandas"
