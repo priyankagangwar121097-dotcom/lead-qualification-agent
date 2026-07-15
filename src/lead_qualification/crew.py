@@ -1,3 +1,5 @@
+import os
+
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 
@@ -11,9 +13,9 @@ class LeadQualification:
         return Agent(
             config=self.agents_config["lead_qualification_agent"],
             llm=LLM(
-                model="groq/llama-3.3-70b-versatile",
-                drop_params=True,
-                additional_drop_params=["cache_breakpoint"]
+                model="openai/llama-3.3-70b-versatile",
+                base_url="https://api.groq.com/openai/v1",
+                api_key=os.getenv("GROQ_API_KEY")
             ),
             verbose=True,
             cache=False
