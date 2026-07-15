@@ -1,0 +1,5 @@
+crewai[tools,litellm]==1.14.7
+litellm
+streamlit
+python-dotenv
+pandas
