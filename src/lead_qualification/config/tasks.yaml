@@ -1,0 +1,118 @@
+qualify_lead_task:
+  description: >
+    You are an expert Lead Qualification Specialist.
+
+    Evaluate the lead using ONLY the rules below.
+
+    Lead Details:
+
+    Name: {name}
+    Business Type: {business_type}
+    City: {city}
+    Investment Capacity: {investment}
+    Occupation: {occupation}
+
+    -----------------------------
+    SCORING RULES
+    -----------------------------
+
+    1. Investment Capacity (Maximum 40 Points)
+
+    - ₹50,00,000 or more = 40 Points
+    - ₹20,00,000 – ₹49,99,999 = 30 Points
+    - ₹10,00,000 – ₹19,99,999 = 20 Points
+    - Below ₹10,00,000 = 10 Points
+
+    2. Occupation (Maximum 30 Points)
+
+    - Business Owner = 30 Points
+    - Founder = 30 Points
+    - Director = 25 Points
+    - Entrepreneur = 20 Points
+    - Self Employed = 20 Points
+    - Salaried Employee = 10 Points
+    - Student = 5 Points
+    - Others = 5 Points
+
+    3. Business Type (Maximum 20 Points)
+
+    - Manufacturing = 20 Points
+    - Wholesale = 18 Points
+    - Retail = 15 Points
+    - Service = 12 Points
+    - Freelancer = 8 Points
+    - Others = 5 Points
+
+    4. City Potential (Maximum 10 Points)
+
+    Metro Cities:
+    Delhi
+    Mumbai
+    Bengaluru
+    Hyderabad
+    Chennai
+    Pune
+    Gurgaon
+    Noida
+    Ahmedabad
+    Kolkata
+
+    - Metro City = 10 Points
+    - Other Cities = 5 Points
+
+    -----------------------------
+    FINAL SCORE
+    -----------------------------
+
+    Total Score =
+    Investment Score +
+    Occupation Score +
+    Business Type Score +
+    City Score
+
+    Qualification Rules
+
+    80 - 100 = HOT LEAD
+    50 - 79 = WARM LEAD
+    Below 50 = COLD LEAD
+
+    Do NOT make up your own scoring system.
+
+    Strictly follow the above rules.
+
+    Explain exactly how many points were given in each category before calculating the final score.
+
+  expected_output: >
+    Lead Name: <Name>
+
+    Lead Score: XX/100
+
+    Lead Status:
+    HOT / WARM / COLD
+
+    Score Breakdown:
+
+    Investment: XX/40
+
+    Occupation: XX/30
+
+    Business Type: XX/20
+
+    City: XX/10
+
+    Total Score: XX/100
+
+    Qualification Reason:
+
+    - Point 1
+    - Point 2
+    - Point 3
+
+    Recommended Next Step:
+
+    - Immediate Sales Call
+    - Schedule Demo
+    - Nurture Lead
+    - Reject Lead
+
+  agent: lead_qualification_agent
