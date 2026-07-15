@@ -13,11 +13,12 @@ class LeadQualification:
         return Agent(
             config=self.agents_config["lead_qualification_agent"],
             llm=LLM(
-                model="openai/llama-3.3-70b-versatile",
-                base_url="https://api.groq.com/openai/v1",
-                api_key=os.getenv("GROQ_API_KEY")
+                model="groq/llama-3.3-70b-versatile",
+                api_key=os.getenv("GROQ_API_KEY"),
+                drop_params=True
             ),
-            verbose=True
+            verbose=True,
+            cache=False
         )
 
     @task
@@ -32,5 +33,6 @@ class LeadQualification:
             agents=[self.lead_qualification_agent()],
             tasks=[self.qualify_lead_task()],
             process=Process.sequential,
-            verbose=True
+            verbose=True,
+            cache=False
         )
