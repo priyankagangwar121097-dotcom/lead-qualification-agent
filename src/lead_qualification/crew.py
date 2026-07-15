@@ -14,7 +14,8 @@ class LeadQualification:
                 model="groq/llama-3.3-70b-versatile",
                 drop_params=True
             ),
-            verbose=True
+            verbose=True,
+            cache=False
         )
 
     @task
@@ -29,5 +30,6 @@ class LeadQualification:
             agents=[self.lead_qualification_agent()],
             tasks=[self.qualify_lead_task()],
             process=Process.sequential,
-            verbose=True
+            verbose=True,
+            cache=False
         )
