@@ -17,8 +17,7 @@ class LeadQualification:
                 base_url="https://api.groq.com/openai/v1",
                 api_key=os.getenv("GROQ_API_KEY")
             ),
-            verbose=True,
-            cache=False
+            verbose=True
         )
 
     @task
@@ -33,6 +32,5 @@ class LeadQualification:
             agents=[self.lead_qualification_agent()],
             tasks=[self.qualify_lead_task()],
             process=Process.sequential,
-            verbose=True,
-            cache=False
+            verbose=True
         )
