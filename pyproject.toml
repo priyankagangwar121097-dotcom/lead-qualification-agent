@@ -2,14 +2,13 @@
 name = "lead_qualification"
 version = "0.1.0"
 description = "lead_qualification using crewAI"
-authors = [{ name = "Priyanka Gangwar", email = "you@example.com" }]
-requires-python = ">=3.10,<3.14"
+authors = [{ name = "Priyanka Gangwar", email = "priyankagangwar121097@gmail.com" }]
+requires-python = ">=3.12,<3.14"
 
 dependencies = [
-    "crewai[tools,litellm]==1.14.7",
-    "litellm",
+    "crewai[tools]==1.14.7",
+    "litellm>=1.80.0",
     "streamlit",
-    "python-dotenv",
     "pandas"
 ]
 
