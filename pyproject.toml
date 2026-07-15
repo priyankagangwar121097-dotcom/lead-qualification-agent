@@ -1,15 +1,16 @@
 [project]
 name = "lead_qualification"
 version = "0.1.0"
-description = "Lead qualification using CrewAI"
-authors = [{ name = "Your Name", email = "you@example.com" }]
+description = "lead_qualification using crewAI"
+authors = [{ name = "Priyanka Gangwar", email = "you@example.com" }]
 requires-python = ">=3.10,<3.14"
 
 dependencies = [
-    "crewai[tools]==1.14.7",
+    "crewai[tools,litellm]==1.14.7",
     "litellm",
     "streamlit",
-    "python-dotenv"
+    "python-dotenv",
+    "pandas"
 ]
 
 [project.scripts]
