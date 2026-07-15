@@ -1,5 +1,5 @@
-crewai[tools,litellm]==1.14.7
-litellm
+crewai[tools]==1.14.7
+litellm==1.92.0
 streamlit
-python-dotenv
+python-dotenv>=1.2.2
 pandas
