@@ -1,6 +1,7 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 
+
 @CrewBase
 class LeadQualification:
     """Lead Qualification crew"""
@@ -10,7 +11,8 @@ class LeadQualification:
         return Agent(
             config=self.agents_config["lead_qualification_agent"],
             llm=LLM(
-                model="groq/llama-3.3-70b-versatile"
+                model="groq/llama-3.3-70b-versatile",
+                drop_params=True
             ),
             verbose=True
         )
