@@ -1,7 +1,11 @@
 import os
 
+from dotenv import load_dotenv
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
+
+
+load_dotenv()
 
 
 @CrewBase
@@ -10,16 +14,16 @@ class LeadQualification:
 
     @agent
     def lead_qualification_agent(self) -> Agent:
+        llm = LLM(
+            model="groq/llama-3.3-70b-versatile",
+            api_key=os.getenv("GROQ_API_KEY")
+        )
+
         return Agent(
             config=self.agents_config["lead_qualification_agent"],
-            llm=LLM(
-                model="groq/llama-3.3-70b-versatile",
-                api_key=os.getenv("GROQ_API_KEY"),
-                drop_params=True,
-                additional_drop_params=["cache_breakpoint"],
-            ),
+            llm=llm,
             verbose=True,
-            cache=False,
+            cache=False
         )
 
     @task
@@ -35,5 +39,5 @@ class LeadQualification:
             tasks=[self.qualify_lead_task()],
             process=Process.sequential,
             verbose=True,
-            cache=False,
+            cache=False
         )
