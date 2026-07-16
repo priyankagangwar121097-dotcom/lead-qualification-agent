@@ -1,9 +1,8 @@
 import streamlit as st
 import re
 
-from lead_qualification.crew import LeadQualification
-from lead_qualification.email_sender import route_email
-
+from crew import LeadQualification
+from email_sender import route_email
 
 # Page settings
 st.set_page_config(
